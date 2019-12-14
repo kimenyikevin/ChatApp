@@ -19,6 +19,7 @@ class User {
     first_name VARCHAR(128) NOT NULL,
     last_name VARCHAR(128) NOT NULL,
     email VARCHAR(128) NOT NULL UNIQUE,
+    user_name VARCHAR(128) NOT NULL,
     password VARCHAR(128) NOT NULL,
     birth_day VARCHAR(128) NOT NULL,
     gender VARCHAR(128) NOT NULL

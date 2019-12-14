@@ -7,6 +7,7 @@ class Validation {
       email: Joi.string()
         .email()
         .required(),
+      userName: Joi.string().required().regex(/^[a-zA-Z]+$/),
       password: Joi.string()
         .min(8)
         .max(15)
