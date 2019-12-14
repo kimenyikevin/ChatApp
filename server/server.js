@@ -31,3 +31,4 @@ socket.on('typing', (data) => {
 })
 });
 
+export default app;

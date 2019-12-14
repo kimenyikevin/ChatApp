@@ -8,6 +8,7 @@ class User {
       req.body.firstName,
       req.body.lastName,
       req.body.email,
+      req.body.userName,
       hashPassword,
       req.body.birthDay,
       req.body.gender,
@@ -32,17 +33,17 @@ class User {
   }
 async login(req, res){
     try {
-      const user = await service.login_user(req.body.email, req.body.password);
+      const user = await service.login_user(req.body.userName);
       if (!user) {
         return res.status(404).send({
           status: 404,
-           error: `${req.body.email} does not exist in our database` 
+           error: `${req.body.userName} does not exist in our database` 
           });
       }
       if (!Helper.comparePassword(user.password, req.body.password)) {
         return res.status(400).send({ 
             status: 400,
-            error: 'E-mail and password do not match' 
+            error: 'user_name and password do not match' 
           });
       }
       const token = Helper.generateToken(user.id, user.email);
@@ -56,6 +57,24 @@ async login(req, res){
         error: `error accured ${error}`,
       });
     }
+}
+async getAll(req, res) {
+  try {
+    const user  = await service.getAll_user();
+    if(user.length < 1){
+      return res.status(404).send({
+        status: 404,
+         error: `no user found in our databse` 
+        });
+    }
+  
+    return res.status(200).send({
+       status: 200,
+       data: user
+      });
+  } catch(error) {
+    return res.status(400).send(error);
+  }
 }
 }
 
