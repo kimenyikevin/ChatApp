@@ -67,10 +67,19 @@ async getAll(req, res) {
          error: `no user found in our databse` 
         });
     }
-  
+    const owner = req.user;
+const foundUser = user.find(u => owner.id === u.id)
+if(foundUser){
+  const index = user.indexOf(foundUser);
+  user.splice(index, 1);
+}
+const newUsers = user.map(u => {
+  const {id, email, password, birth_day, gender, ...userInfo} = u;
+  return userInfo;
+});
     return res.status(200).send({
        status: 200,
-       data: user
+       data: newUsers
       });
   } catch(error) {
     return res.status(400).send(error);

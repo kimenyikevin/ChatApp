@@ -30,11 +30,7 @@ class User {
         const findAll = 'SELECT * FROM users';
         try {
           const { rows } = await model.execute(findAll);
-          const newUsers = rows.map(user => {
-            const {id, email, password, birth_day, gender, ...userInfo} = user;
-            return userInfo;
-        });
-          return newUsers;
+          return rows;
         } catch(error) {
           console.log(`error accured ${error}`);
         }

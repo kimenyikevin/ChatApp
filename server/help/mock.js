@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import helper from '../help/help'
 
 dotenv.config();
 
@@ -42,30 +43,32 @@ export const testingData = {
 }
  
 
-// export const invaldToken = helper.generateToken(0, '@gmail.com');
+export const invaldToken = helper.generateToken(0);
+
 
 // export const notExistUserToken = helper.generateToken(0, 'testuser@gmail.com');
 
-// export const realToken = helper.generateToken(2, 'usertest@gmail.com');
+
 
 // export const realMentor = helper.generateToken(3, 'mentor@gmail.com');
 
 // export const realAdmin = helper.generateToken(1, 'kimenyikevin@gmail.com');
 
-// const hashPassword = helper.hashPassword('kigalikigali');
-// export const insertTestData = `INSERT INTO users ( firstName, lastName, email, password, address, bio, occupation, expertise)
-//   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-//   RETURNING *`;
-// export const testData = [
-//   'habimana',
-//   'emmy',
-//   'habimanaemmy@gmail.com',
-//   hashPassword,
-//   'kigali',
-//   'engineer',
-//   'engineer',
-//   'engineer'
-// ];
+const hashPassword = helper.hashPassword('kigalikigali');
+export const text = `INSERT INTO
+users(id, first_name, last_name, email, user_name, password, birth_day, gender)
+VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+returning *`;
+export const testData = [
+  1,
+  'habimana',
+  'emmy',
+  'habimanaemmy01@gmail.com',
+  'habimana',
+  hashPassword,
+  '28.3.1996',
+  'male'
+];
 // export const insertAdmin = `
 // INSERT INTO users (id,firstName, lastName, email, password, address, bio,status, occupation, expertise)
 // VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)

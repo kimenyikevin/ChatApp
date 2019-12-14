@@ -2,7 +2,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server';
 import models from '../models/user';
-import { testingData } from '../help/mock'
+import Helper from '../help/help';
+import { testingData, invaldToken, text, testData } from '../help/mock'
 
 
 const { expect } = chai;
@@ -95,6 +96,63 @@ describe('test for database', () => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
         expect(res.body.error).to.be.equal('user_name and password do not match');
+        done();
+      });
+  });
+});
+
+describe('Test for verifying Token', () => {
+  it('should return error if Token is invalid', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/getall')
+      .set('token', invaldToken)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.error).to.be.equal('The token you provided is invalid');
+        done();
+      });
+  });
+  it('should return error if Token is invalid', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/getall')
+      .set('token', '')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.error).to.be.equal('Token is not provided');
+        done();
+      });
+  });
+  it('should return error if Token is invalid', (done) => {
+    chai
+      .request(server)
+      .get('/api/v1/getall')
+      .set('token', 'undifined')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(400);
+        expect(res.body.error.name).to.be.equal('JsonWebTokenError');
+        expect(res.body.error.message).to.be.equal('jwt malformed');
+        done();
+      });
+  });
+});
+
+describe('Test for getall users', () => {
+  it('should return all users', (done) => {
+    const user = models.execute(text, testData);
+    const realToken = Helper.generateToken(1);
+    chai
+      .request(server)
+      .get('/api/v1/getall')
+      .set('token', realToken)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(200);
+        expect(res.body.data).to.be.an('Array');
         done();
       });
   });
