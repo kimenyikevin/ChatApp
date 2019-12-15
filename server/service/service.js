@@ -35,6 +35,18 @@ class User {
           console.log(`error accured ${error}`);
         }
       }
+      async getOne_user(id) {
+        const text = 'SELECT * FROM users WHERE id = $1';
+        try {
+          const { rows } = await model.execute(text, id);
+          if (!rows[0]) {
+            return undefined;
+          }
+          return rows;
+        } catch(error) {
+          console.log(`error accured ${error}`);
+        }
+      }
 }
 
 export default new User();

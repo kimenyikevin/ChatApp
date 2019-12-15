@@ -143,7 +143,7 @@ describe('Test for verifying Token', () => {
 
 describe('Test for getall users', () => {
   it('should return all users', (done) => {
-    const user = models.execute(text, testData);
+     models.execute(text, testData);
     const realToken = Helper.generateToken(1);
     chai
       .request(server)
@@ -153,6 +153,34 @@ describe('Test for getall users', () => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(200);
         expect(res.body.data).to.be.an('Array');
+        done();
+      });
+  });
+  it('should return one user', (done) => {
+    models.execute(text, testData);
+    const realToken = Helper.generateToken(1);
+    chai
+      .request(server)
+      .get('/api/v1/getall/1')
+      .set('token', realToken)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(200);
+        expect(res.body.data).to.be.an('Array');
+        done();
+      });
+  });
+  it('should return one user', (done) => {
+    models.execute(text, testData);
+    const realToken = Helper.generateToken(1);
+    chai
+      .request(server)
+      .get('/api/v1/getall/0')
+      .set('token', realToken)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(404);
+        expect(res.body.error).to.be.equal('user not found');
         done();
       });
   });
