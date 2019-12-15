@@ -74,7 +74,7 @@ if(foundUser){
   user.splice(index, 1);
 }
 const newUsers = user.map(u => {
-  const {id, email, password, birth_day, gender, ...userInfo} = u;
+  const { email, password, birth_day, gender, ...userInfo } = u;
   return userInfo;
 });
     return res.status(200).send({
@@ -83,6 +83,30 @@ const newUsers = user.map(u => {
       });
   } catch(error) {
     return res.status(400).send(error);
+  }
+}
+async getOne(req, res) {
+  try {
+    const rows  = await service.getOne_user([req.params.id]);
+    if (!rows) {
+      return res.status(404).send({
+        status: 404,
+         error: `user not found` 
+        });
+    }
+    const newUsers = rows.map(u => {
+      const { email, password, birth_day, gender, ...userInfo } = u;
+      return userInfo;
+    });
+    return res.status(200).send({
+      status: 200,
+      data: newUsers
+    });
+  } catch(error) {
+    return res.status(400).send({
+      status: 400,
+      error:`error has accurred ${error}`
+    })
   }
 }
 }
