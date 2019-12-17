@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import helper from '../help/help'
+import helper from './help'
 
 dotenv.config();
 

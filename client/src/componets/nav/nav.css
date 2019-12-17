@@ -1,0 +1,13 @@
+.nav ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    font-weight: 900;
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+.nav ul a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+}

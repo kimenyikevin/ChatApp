@@ -1,0 +1,66 @@
+body{
+  background-color: #3f5767;
+  color: white;
+  font-family:  monospace;
+  margin: -1px;
+  overflow: hidden;
+}
+a{
+  color: white;
+}
+.sign-text{
+  text-align: center;
+  font-style: italic;
+  font-weight: 900;
+  font-family:  monospace;
+  font-size: 3em;
+  text-shadow: 3px 3px #061018;
+}
+.sign-container{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.sign-container input{
+  width: 90%;
+  margin-top: 10px;
+  border-radius: 3px;
+  font-size: 1.2em;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: none;
+}
+.sign-container label{
+  font-size: 1em;
+}
+#check{
+    margin-left: -150px;
+}
+#check-2{
+  margin-left: -80px;
+}
+.sign-container-1{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 90px;
+  background-color: #0d1f29;
+  border-radius: 10px;
+  box-shadow: 5px 5px #061018;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.sign-btn button{
+  padding: 10px;
+  width: 92%;
+  font-size: 1em;
+  background-color: #5f9744;
+  border-style: none;
+  font-weight: 900; 
+  color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.date select{
+  padding: 3px;
+  font-size: 1em;
+}
