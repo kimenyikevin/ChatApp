@@ -12,6 +12,7 @@ const App = () => {
             <Route path ="/signup" component = {Signup} />
             <Route path ="/chat" component = {Chat} />
         </Router>
+        
     );
 }
 
