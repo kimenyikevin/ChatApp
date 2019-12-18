@@ -1,0 +1,11 @@
+.list-users{
+  border: 1px solid #0d1f29;
+  height: 14vh;
+}
+.list-users:hover, .active {
+  background-color: #0d1f29;
+}
+.list-users h3{
+  margin-left: 40px;
+  font-size: 1.7em;
+}

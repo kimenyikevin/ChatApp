@@ -32,18 +32,6 @@ body{
   .container div{
     padding-left: 20px;
   }
-  /* .container div button{
-    padding: 10px;
-    width: 70%;
-    font-size: 1em;
-    background-color: #5f9744;
-    border-style: none;
-    font-weight: 900;
-  }
-  .container div button a{
-    text-decoration: none;
-    color: white;
-  } */
   .container div h3{
     font-size: 1em;
     color: #81b1c0;
@@ -113,6 +101,7 @@ body{
     padding: 3px;
     font-size: 1em;
   }
+  
   .dash-container{
     display: grid;
     grid-template-columns: 1fr 2fr; 
@@ -150,33 +139,11 @@ body{
     color: white;
     text-decoration: white;
   }
-  .list-users{
-    border: 1px solid #0d1f29;
-    height: 14vh;
-  }
-  .list-users h3{
-    font-size: 1.6em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-left: 10px;
-  }
-  .list-users p{
-    margin-top: 3px;
-    color: #dedddd;
-    margin-left: -60px;
-  }
-  .list-users h4{
-    margin-top: -35px;
-    margin-left: 10px;
-    font-size: 1.2em;
-  }
-  .list-users:hover, .active {
-    background-color: #0d1f29;
-  }
-  .right-dash{
-    /* background-image: url("../images/bckground.jpg"); */
-    width: 100%;
-  }
+
+
+
+
+  
   .right-dash .user-info{
     background-color: #3f5767;
     border: 1px solid #0d1f29;
@@ -188,34 +155,4 @@ body{
     margin-top: -15px;
     font-size: 1.3em;
     color: #dedddd;
-  }
-  .msg-1{
-    background-color: #0d1f29;
-    width: 10%;
-    padding: 2px;
-    margin-top: 20px;
-    margin-left: 10px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 2px 2px #061018;
-  }
-  .msg-2{
-    background-color: #0d1f29;
-    width: 30%;
-    padding: 2px;
-    margin-top: 20px;
-    margin-left: 610px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 2px 2px #061018;
-  }
-  .msg-box input{
-    width: 100%;
-    margin-top: 325px;
-    height: 5vh;
-    border-radius: 10px ;
-    padding-left: 10px;
-    outline: none;
-    border: none;
-    font-size: 1.3em;
   }

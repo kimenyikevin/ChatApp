@@ -11,6 +11,7 @@ class App extends Component {
       { label: 'SIGNUP', link: '/signup' },
       { label: 'LOGIN', link: '/join' },
     ];
+    
     return (
       <div className="App">
     <Navigation links = { links }/>
@@ -19,7 +20,7 @@ class App extends Component {
             <div id="text"><h3>HAVE BETTER CHAT</h3></div>  
             <p>We help you communicate with your friends  </p>
           <div className="container">
-             <SignUp/>
+             <SignUp />
               <Signin />
           </div>
       </main>

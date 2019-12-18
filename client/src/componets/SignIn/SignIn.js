@@ -7,7 +7,7 @@ const signUp = (props) =>{
  return (
     <div>
     <h3>HAVE AN ACCOUNT SIGN IN</h3>
-    <Button text={b}/>
+    <Button text={b} signin={'/join'}/>
 </div>
  )
 }

@@ -29,7 +29,7 @@ const Join = () => {
           </Link>
         </div>
         <p>
-          Don't have an account <a href="signup.html">sign up</a>
+          Don't have an account <a href='/signup'>sign up</a>
         </p>
       </div>
     </div>

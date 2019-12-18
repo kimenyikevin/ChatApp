@@ -2,8 +2,15 @@ import React from 'react';
 
 import classes from './Button.module.css';
 
-const button = (props) =>(
-    <button className={classes.Button}><a href="./pages/signup.html"> {props.text} </a></button>
-);
+const button = (props) =>{
+   let links = {
+       signup: '/signup',
+       signin: '/signin'
+   }
+    return(
+        <a href={props.signin}> <button className={classes.Button}> {props.text} </button></a>
+    )
+}
+    
 
 export default button;
