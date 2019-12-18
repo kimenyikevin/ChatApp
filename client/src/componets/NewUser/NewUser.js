@@ -1,49 +1,30 @@
 import React, {Component} from 'react';
 import Button from '../Button/Button'
+import Input from '../SigniInput/SignInput';
+import SigniInput from '../SigniInput/SignInput'
+import classes from './NewUser.module.css'
 
 
 class signUp extends Component {
     render() {
      return(
-         <div>
-        <div className="sign-container-1">
-          <h1 class="sign-text">SIGN UP FOR CHAT</h1>
-          <div class="sign-container">
-            <input type="text" placeholder="First Name" /><br />
-            <input type="text" placeholder="Last Name" /><br />
-            <input type="text" placeholder="E-mail" /><br />
-            <input type="text" placeholder="User Name" /><br />
-            <input type="text" placeholder="Password" /><br />
-            <input type="text" placeholder="Comfirm Password" /><br /><br/>
-           <div class="date">
-              <label for="">Birth Day</label>
-              <select name="" id="">
-
-              </select>
-              <select name="" id="">
-                      <option value="months">months</option>
-              </select>
-              <select name="" id="">
-                      <option value="years">years</option>
-              </select>
-              <label for="">Gender</label>
-              <select name="" id="">
-                  <option value="Gender">Male</option>
-                  <option value="Female">Female</option>
-              </select>
-          </div> 
-          <div class="sign-btn">
+        <div className={classes.signContainer1}>
+          <h1 class={classes.signText}>SIGN UP FOR CHAT</h1>
+          <div class={classes.signContainer}>
+             <SigniInput placeholder="First Name"/>
+             <SigniInput placeholder="Last Name"/>
+             <SigniInput placeholder="E-mail"/>
+             <SigniInput placeholder="User Name"/>
+             <SigniInput placeholder="Password"/>
+             <SigniInput placeholder="Comfirm Password"/>
+             <SigniInput placeholder="Date of Birth"/>
+             <SigniInput placeholder="Gender"/>
+          <div className={classes.signBtn}>
               <Button text= 'SIGN UP' />
           </div>
           <p>Already have an account <a href='/join'>Login</a></p>
           </div>
         </div>
-      <footer>
-        <div class="footer-copyright">
-          <p>ChatApp ©2019,All Right reserved</p>
-        </div>
-      </footer>
-      </div>
      )
     };
    

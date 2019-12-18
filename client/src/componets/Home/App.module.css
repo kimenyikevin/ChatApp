@@ -1,0 +1,47 @@
+body{
+    background-color: #3f5767;
+    color: white;
+    font-family:  monospace;
+    margin: -1px;
+    overflow: hidden;
+  }
+  main h1{
+    text-align: center;
+    font-style: italic;
+    font-weight: 900;
+    font-family:  monospace;
+    font-size: 5em;
+    text-shadow: 3px 3px #061018
+  }
+  .text{
+    text-align: center;
+    margin-top: -40px;
+    text-shadow: 3px 3px #061018;
+    color: #81b1c0;
+  }
+  main p{
+    text-align: center;
+  }
+  .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 57vh;
+  }
+  .container div{
+    padding-left: 20px;
+  }
+  .container div h3{
+    font-size: 1em;
+    color: #81b1c0;
+    margin-left: 50px;
+  }
+  .footer{
+    color: #ffffff;
+    text-align: center;
+  }
+  .footer p{
+    margin-bottom: 4px;
+    font-size: 0.8em;
+  }

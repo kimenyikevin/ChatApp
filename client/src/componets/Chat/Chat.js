@@ -3,8 +3,9 @@ import queryString from 'query-string';
 import io from 'socket.io-client';
 import InfoBar from '../InforBar/InforBar';
 import Input from '../Input/Input';
-import './Chat.css';
+import classes from './Chat.module.css';
 import Users from '../Users/Users'
+import Messages from '../Message/Message'
 
 let socket;
 const Chat = ({ location }) => {
@@ -31,6 +32,7 @@ const Chat = ({ location }) => {
         socket.on('message', (message) => {
           setMessages([...messages, message ]);
         });
+
     
         socket.on('roomData', ({ users }) => {
           setUsers(users);
@@ -45,25 +47,26 @@ const Chat = ({ location }) => {
     
       const sendMessage = (event) => {
         event.preventDefault();
-    
+        
         if(message) {
           socket.emit('sendMessage', message, () => setMessage(''));
         }
       }
     return (
-      <div class="dash-container">
-      <div class="left-dash">
-          <div class="menu">
+      <div class={classes.dashContainer}>
+      <div class={classes.leftDash}>
+          <div class={classes.menu}>
               <h2><a href="/">CHATAPP</a></h2>
               <h3><a href="/join">SIGN OUT</a></h3>
           </div>
         <input type="text" placeholder="Search.."  />
-        <div class="list-users active">
+        <div className={`${classes.listUsers} ${classes.active}`} >
             <Users room ={ room }/>
         </div>
       </div>
-      <div className="right-dash">
+      <div className={classes.rightDash}>
           <InfoBar room={room} />
+          <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
     </div>

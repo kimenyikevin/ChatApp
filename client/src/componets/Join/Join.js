@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Join.css";
+import classes from  "./Join.module.css";
+import Input from '../SigniInput/SignInput'
 
 const Join = () => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
   return (
-    <div className="sign-container-1">
-      <h1 className="sign-text">SIGN IN FOR CHAT</h1>
-      <div className="sign-container">
+    <div className={classes.signContainer1}>
+      <h1 className={classes.signText}>SIGN IN FOR CHAT</h1>
+      <div className={classes.signContainer}>
         <input
           placeholder="User Name"
-          className="joinInput"
+          className={classes.joinInput}
           type="text"
           onChange={event => setName(event.target.value)}
         />
         <input
           placeholder="Password"
-          className="joinInput mt-20"
           type="text"
           onChange={event => setRoom(event.target.value)}
         />
-        <div class="sign-btn">
+        <div className={classes.signBtn}>
           <Link  onClick={e => (!name || !room ? e.preventDefault() : null)} to={`/chat?name=${name}&room=${room}`} >
-            <button className={"button mt-20"} type="submit">
+            <button type="submit">
               SIGNIN
             </button>
           </Link>

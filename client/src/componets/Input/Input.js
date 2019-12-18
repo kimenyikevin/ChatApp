@@ -1,18 +1,18 @@
 import React from 'react';
 
-import './Input.css';
+import  classes from './Input.module.css';
 
 const Input = ({ setMessage, sendMessage, message }) => (
-  <form className="form">
+  <form className={classes.form}>
     <input
-      className="msg-box"
+      className={classes.msg}
       type="text"
       placeholder="Type a message..."
       value={message}
       onChange={({ target: { value } }) => setMessage(value)}
       onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
     />
-    <button className="sendButton" onClick={e => sendMessage(e)}>Send</button>
+    <button className={classes.sendButton} onClick={e => sendMessage(e)}>Send</button>
   </form>
 )
 
