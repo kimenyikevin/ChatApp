@@ -39,7 +39,7 @@ app.use(express.json())
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
-app.use('/', (req, res) => res.send('welcome') )
+
 app.use('/api/v1', users);
 
 
