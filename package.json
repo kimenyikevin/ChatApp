@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node --require @babel/polyfill --require @babel/register ./server/server/server.js ",
+    "start": "node --require @babel/polyfill --require @babel/register ./server/server.js ",
     "dev-start": "babel-watch server/server.js",
-    "test": "nyc mocha server/server/test --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
+    "test": "nyc mocha server/test --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
     "showCoverage": "start coverage/server/index.html"
   },
