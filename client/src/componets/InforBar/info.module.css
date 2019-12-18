@@ -1,0 +1,8 @@
+ .infoBar {
+    justify-content: space-between;
+    background-color: #3f5767;
+    border-radius: 4px 4px 0 0;
+    height: 10vh;
+    width: 100%;
+    margin-left: 5%;
+  }

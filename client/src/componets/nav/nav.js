@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./nav.css";
+import classes from  "./nav.module.css";
 
 class Navigation extends Component {
   render() {
@@ -12,7 +12,7 @@ class Navigation extends Component {
     });
 
     return (
-      <div className="nav">
+      <div className={classes.nav}>
         <ul>
           <li></li>
           <li></li>

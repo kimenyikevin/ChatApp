@@ -1,0 +1,41 @@
+.signBtn button{
+    padding: 10px;
+    width: 56%;
+    font-size: 1em;
+    background-color: #5f9744;
+    border-style: none;
+    font-weight: 900; 
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 20%;
+  }
+  a{
+    color: white;
+  }
+  .signText{
+    text-align: center;
+    font-style: italic;
+    font-weight: 900;
+    font-family:  monospace;
+    font-size: 2em;
+    text-shadow: 3px 3px #061018;
+  }
+  .signContainer{
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+  .signContainer p{
+    margin-left: 20%;
+    font-size: 1.3em;
+  }
+  .signContainer1{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 90px;
+    background-color: #0d1f29;
+    border-radius: 10px;
+    box-shadow: 5px 5px #061018;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }

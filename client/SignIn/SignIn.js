@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../Button/Button';
+import Button from '../src/componets/Button/Button';
 
 const signUp = (props) =>{
     const b = 'SIGNIN';

@@ -8,7 +8,7 @@ body{
 a{
   color: white;
 }
-.sign-text{
+.signText{
   text-align: center;
   font-style: italic;
   font-weight: 900;
@@ -16,11 +16,11 @@ a{
   font-size: 3em;
   text-shadow: 3px 3px #061018;
 }
-.sign-container{
+.signContainer{
     margin-left: 20%;
     margin-right: 20%;
 }
-.sign-container input{
+.signContainer input{
   width: 90%;
   margin-top: 10px;
   border-radius: 3px;
@@ -30,16 +30,11 @@ a{
   padding-bottom: 5px;
   border-style: none;
 }
-.sign-container label{
+.signContainer label{
   font-size: 1em;
 }
-#check{
-    margin-left: -150px;
-}
-#check-2{
-  margin-left: -80px;
-}
-.sign-container-1{
+
+.signContainer1{
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 90px;
@@ -49,7 +44,7 @@ a{
   padding-top: 5px;
   padding-bottom: 10px;
 }
-.sign-btn button{
+.signBtn button{
   padding: 10px;
   width: 92%;
   font-size: 1em;
@@ -59,8 +54,4 @@ a{
   color: white;
   border-radius: 5px;
   margin-top: 10px;
-}
-.date select{
-  padding: 3px;
-  font-size: 1em;
 }
