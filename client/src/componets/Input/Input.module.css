@@ -1,5 +1,6 @@
 .form {
     display: flex;
+    height: 80vh;
   }
   .msg{
     border: none;
@@ -8,6 +9,7 @@
     width: 90%;
     font-size: 1.2em;
     height: 10vh;
+    margin-top: 60vh;
   }
   input:focus{
     outline: none;
@@ -23,4 +25,5 @@
     width: 10%;
     height: 10vh;
     border-radius: 10px;
+    margin-top: 60vh;
   }
