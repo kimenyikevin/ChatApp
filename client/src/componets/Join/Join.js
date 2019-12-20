@@ -42,7 +42,7 @@ class Join extends Component {
 
   render(){
     if (this.state.redirectToReferrer) {
-      return (<Redirect to={'/chat'}/>)
+      return (<Redirect to={`/chat?userName=${this.state.userName}&password=${this.state.password}`}/>)
     }
     return (
       <div className={classes.signContainer1}>

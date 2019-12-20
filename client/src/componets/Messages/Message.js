@@ -2,12 +2,10 @@ import React from 'react';
 
 import  classes from './Message.module.css';
 
-import ReactEmoji from 'react-emoji';
 
-const Message = ({ message: { text, user }, name }) => {
+const Message = ({ message: { text, user }, userName }) => {
   let isSentByCurrentUser = false;
-
-  const trimmedName = name.trim().toLowerCase();
+  const trimmedName = userName.trim().toLowerCase()
   if(user === trimmedName) {
     isSentByCurrentUser = true;
   }
@@ -15,16 +13,16 @@ const Message = ({ message: { text, user }, name }) => {
     isSentByCurrentUser
       ? (
         <div className={`${classes.messageContainer} ${classes.justifyEnd} ` }>
-          <p className={`${classes.sentText} ${classes.pr_10}`}>{trimmedName}</p>
+          <p className={`${classes.sentText} ${classes.pr_10}`}>{userName}</p>
           <div className={`${classes.messageBox} ${classes.backgroundBlue}`}>
-            <p className={`${classes.messageText} ${classes.colorWhite}`}>{ReactEmoji.emojify(text)}</p>
+      <p className={`${classes.messageText} ${classes.colorWhite}`}>{text}</p>
           </div>
         </div>
         )
         : (
           <div className={`${classes.messageContainer} ${classes.justifyStart}`}>
             <div className={`${classes.messageBox} ${classes.backgroundLight}`}>
-              <p className={`${classes.messageText} ${classes.colorDark}`}>{ReactEmoji.emojify(text)}</p>
+        <p className={`${classes.messageText} ${classes.colorDark}`}>{text}</p>
             </div>
             <p className={`${classes.sentText} ${classes.pl_10 }`}>{user}</p>
           </div>
