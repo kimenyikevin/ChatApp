@@ -58,7 +58,7 @@ class Join extends Component {
           <input
             placeholder="Password"
             name="password"
-            type="text"
+            type="password"
             onChange={this.onChange}
           />
           <div className={classes.signBtn}>

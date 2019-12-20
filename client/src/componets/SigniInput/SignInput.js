@@ -90,7 +90,7 @@ class SigniInput extends React.Component {
             onChange={this.onChange}
             placeholder="Password"
             className={classes.joinInput}
-            type="text"
+            type="password"
             name="password"
           />
         </div>
