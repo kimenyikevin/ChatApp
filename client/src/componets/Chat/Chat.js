@@ -14,7 +14,7 @@ const Chat = ({ location }) => {
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const endPont = 'localhost:5000';
+    const endPont = 'https://chatapp019.herokuapp.com/';
     useEffect(() => {
         const { name, room} = queryString.parse(location.search);
         socket = io(endPont)
@@ -53,9 +53,9 @@ const Chat = ({ location }) => {
         }
       }
     return (
-      <div class={classes.dashContainer}>
-      <div class={classes.leftDash}>
-          <div class={classes.menu}>
+      <div className={classes.dashContainer}>
+      <div className={classes.leftDash}>
+          <div className={classes.menu}>
               <h2><a href="/">CHATAPP</a></h2>
               <h3><a href="/join">SIGN OUT</a></h3>
           </div>

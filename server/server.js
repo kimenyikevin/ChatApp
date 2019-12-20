@@ -2,16 +2,19 @@ import express from 'express';
 import config from 'dotenv';
 import socket from 'socket.io';
 import http from 'http';
-import cors from 'cors'
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import users from './routers/user';
-import  {  addUser, removeUser, getUser, getUsersInRoom  } from './socketUser/User'
-import './models/user'
+import  {  addUser, removeUser, getUser, getUsersInRoom  } from './socketUser/User';
+import './models/user';
 
 config.config();
 const port = process.env.PORT || 3000;
 const app = express();
+app.use(express.json())
+app.use(bodyParser.json());
 app.use(cors());
+
 const server = http.createServer(app);
 const io = socket(server);
 
@@ -42,14 +45,7 @@ io.on('connection', (socket) =>{
         }
     })
 })
-server.listen(port, () =>  console.log('app running on port ', port))
-
-app.use(express.json())
-app.use(bodyParser.json());
-app.use(express.static('client'));
-
-
 app.use('/api/v1', users);
-
+server.listen(port, () =>  console.log('app running on port ', port))
 
 export default app;
