@@ -1,38 +1,77 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, Component } from "react";
+import {Redirect} from 'react-router-dom';
 import classes from  "./Join.module.css";
-import Input from '../SigniInput/SignInput'
+import PostData from '../../services/PostData'
 
-const Join = () => {
-  const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
-  return (
-    <div className={classes.signContainer1}>
-      <h1 className={classes.signText}>SIGN IN FOR CHAT</h1>
-      <div className={classes.signContainer}>
-        <input
-          placeholder="User Name"
-          className={classes.joinInput}
-          type="text"
-          onChange={event => setName(event.target.value)}
-        />
-        <input
-          placeholder="Password"
-          type="text"
-          onChange={event => setRoom(event.target.value)}
-        />
-        <div className={classes.signBtn}>
-          <Link  onClick={e => (!name || !room ? e.preventDefault() : null)} to={`/chat?name=${name}&room=${room}`} >
-            <button type="submit">
-              SIGNIN
-            </button>
-          </Link>
+
+class Join extends Component {
+  constructor(){
+    super();
+   
+    this.state = {
+     userName: '',
+     password: '',
+     redirectToReferrer: false
+    };
+
+    this.login = this.login.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
+
+  
+
+  login() {
+    if(this.state.userName && this.state.password){
+      const { redirectToReferrer, ...user} = this.state
+      PostData('login', user).then((result) => {
+       const { token } = result;
+       if( token ){         
+        this.setState({redirectToReferrer: true});
+       }
+       if (!token) {
+        alert("please check your information correctly");
+      }
+      });
+    }
+    
+   }
+
+  onChange(e){
+    this.setState({[e.target.name]:e.target.value});
+   }
+
+  render(){
+    if (this.state.redirectToReferrer) {
+      return (<Redirect to={'/chat'}/>)
+    }
+    return (
+      <div className={classes.signContainer1}>
+        <h1 className={classes.signText}>SIGN IN FOR CHAT</h1>
+        <div className={classes.signContainer}>
+          <input
+            placeholder="User Name"
+            name="userName"
+            className={classes.joinInput}
+            type="text"
+            onChange={this.onChange}
+          />
+          <input
+            placeholder="Password"
+            name="password"
+            type="text"
+            onChange={this.onChange}
+          />
+          <div className={classes.signBtn}>
+              <button type="submit" onClick={this.login}>
+                SIGNIN
+              </button>
+          </div>
+          <p>
+            Don't have an account <a href='/signup'>sign up</a>
+          </p>
         </div>
-        <p>
-          Don't have an account <a href='/signup'>sign up</a>
-        </p>
       </div>
-    </div>
-  );
+    );
+  }
 };
 export default Join;
