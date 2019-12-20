@@ -109,6 +109,55 @@ async getOne(req, res) {
     })
   }
 }
+async message(req, res) {
+  const sender = req.user;
+  const values = [
+    sender.id,
+    req.body.reciver_id,
+    sender.user_name,
+    req.body.receiver_username,
+    req.body.message,
+    new Date()
+  ];
+  try {
+    const newMessage = await service.create_messages(values);
+    const { rows } = newMessage;
+    if(!rows){
+      return res.status(409).send({
+          status: 409,
+          error: `you can not send message to this user`,
+        });
+    }
+    const data = rows[0];
+    return res.status(201).send({
+        status: 201,
+         data
+    });
+  } catch(error) {
+    return res.status(400).send(error);
+  }
+}
+
+async getOneMessage(req, res) {
+  try {
+    const rows  = await service.getOneMessage([req.params.receiver_id ]);
+    if (!rows) {
+      return res.status(404).send({
+        status: 404,
+         error: `you did not sent any message to this user` 
+        });
+    }
+    return res.status(200).send({
+      status: 200,
+      data: rows
+    });
+  } catch(error) {
+    return res.status(400).send({
+      status: 400,
+      error:`error has accurred ${error}`
+    })
+  }
+}
 }
 
 export default new User();
