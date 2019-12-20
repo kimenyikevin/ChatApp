@@ -9,6 +9,6 @@ router.post('/login', User.login);
 router.get('/getall', auth.verifyToken, User.getAll);
 router.get('/getall/:id', auth.verifyToken, User.getOne);
 router.post('/messages', auth.verifyToken, User.message);
-router.get('/messages/:receiver_id',  User.getOneMessage )
+router.get('/messages/:receiver_id', auth.verifyToken, User.getOneMessage )
 
 export default router;
