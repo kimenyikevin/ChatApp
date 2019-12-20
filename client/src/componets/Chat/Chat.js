@@ -9,18 +9,18 @@ import Messages from '../Message/Message'
 
 let socket;
 const Chat = ({ location }) => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
+    const [userName, setuserName] = useState('');
+    const [password, setpassword] = useState('');
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const endPont = 'https://chatapp019.herokuapp.com/';
+    const endPont = 'localhost:5000/';
     useEffect(() => {
-        const { name, room} = queryString.parse(location.search);
+        const { userName, password } = queryString.parse(location.search);
         socket = io(endPont)
-        setName(name);
-        setRoom(room);
-        socket.emit('join', { name, room}, () =>{
+        setuserName(userName);
+        setpassword(password);
+        socket.emit('join', { userName, password}, () =>{
         });
         return () => {
             socket.emit('disconnect');
@@ -34,7 +34,7 @@ const Chat = ({ location }) => {
         });
 
     
-        socket.on('roomData', ({ users }) => {
+        socket.on('passwordData', ({ users }) => {
           setUsers(users);
         })
     
@@ -61,12 +61,12 @@ const Chat = ({ location }) => {
           </div>
         <input type="text" placeholder="Search.."  />
         <div className={`${classes.listUsers} ${classes.active}`} >
-            <Users room ={ room }/>
+            <Users room ={ userName }/>
         </div>
       </div>
       <div className={classes.rightDash}>
-          <InfoBar room={room} />
-          <Messages messages={messages} name={name} />
+          <InfoBar userName={userName} />
+          <Messages messages={messages} userName={userName} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
     </div>
