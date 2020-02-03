@@ -1,5 +1,6 @@
 # ChatApp
 [![Build Status](https://travis-ci.com/kimenyikevin/ChatApp.svg?token=nSaAX5QFfDwLa34qR6Cs&branch=develop)](https://travis-ci.com/kimenyikevin/ChatApp)
+[![Coverage Status](https://coveralls.io/repos/github/kimenyikevin/ChatApp/badge.svg?branch=develop)](https://coveralls.io/github/kimenyikevin/ChatApp?branch=develop)
 
 
 
